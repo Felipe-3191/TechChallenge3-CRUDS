@@ -18,7 +18,7 @@ public enum FormadePagamentoEnum {
     public Long getId() {
          return this.id;
     }
-    
+
     public static Optional<FormadePagamentoEnum> fromLong(Long id) {
          return Arrays.stream(FormadePagamentoEnum.values()).filter( f -> f.getId().equals(id)).findFirst();
     }

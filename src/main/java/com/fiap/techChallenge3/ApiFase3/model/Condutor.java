@@ -1,16 +1,28 @@
 package com.fiap.techChallenge3.ApiFase3.model;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Condutor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String endereco;
     private String contato;
+
+    @OneToMany(mappedBy = "condutor")
+
     private List<Veiculo> veiculos = new ArrayList<>();
+
+    @Enumerated(EnumType.ORDINAL)
     private FormadePagamentoEnum formadePagamentoPadrao;
+
+    public Condutor() {}
 
     public Condutor(Long id, String nome, String endereco, String contato) {
         this.id = id;

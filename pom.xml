@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fiap.techChallenge3</groupId>
-	<artifactId>Api-Fase3</artifactId>
+	<artifactId>api-Fase3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Api-Fase3</name>
 	<description>Conjunto de endpoints responsáveis por executar as tarefas da fase 3</description>

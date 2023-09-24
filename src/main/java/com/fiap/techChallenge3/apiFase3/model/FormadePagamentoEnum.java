@@ -1,4 +1,4 @@
-package com.fiap.techChallenge3.ApiFase3.model;
+package com.fiap.techChallenge3.apiFase3.model;
 
 import java.util.Arrays;
 import java.util.Optional;

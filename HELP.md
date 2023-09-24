@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.fiap.techChallenge3.Api-Fase3' is invalid and this project uses 'com.fiap.techChallenge3.ApiFase3' instead.
+* The original package name 'com.fiap.techChallenge3.Api-Fase3' is invalid and this project uses 'com.fiap.techChallenge3.apiFase3' instead.
 
 # Getting Started
 

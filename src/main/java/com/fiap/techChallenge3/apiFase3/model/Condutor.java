@@ -1,8 +1,9 @@
-package com.fiap.techChallenge3.ApiFase3.model;
+package com.fiap.techChallenge3.apiFase3.model;
 
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,6 @@ public class Condutor {
     private String contato;
 
     @OneToMany(mappedBy = "condutor")
-
     private List<Veiculo> veiculos = new ArrayList<>();
 
     @Enumerated(EnumType.ORDINAL)
@@ -61,5 +61,12 @@ public class Condutor {
 
     public void setContato(String contato) {
         this.contato = contato;
+    }
+
+    public void addVeiculo(Veiculo veiculo) {
+        this.veiculos.add(veiculo);
+    }
+    public List<Veiculo> getVeiculos() {
+        return Collections.unmodifiableList(veiculos);
     }
 }

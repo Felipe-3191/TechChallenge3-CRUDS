@@ -19,8 +19,6 @@ public class Veiculo {
     @JoinColumn(name = "condutor_id")
     private Condutor condutor;
 
-    public Veiculo() {
-    }
 
     public  Veiculo(VeiculoDTO veiculoDto) {
         this.id = veiculoDto.getId();

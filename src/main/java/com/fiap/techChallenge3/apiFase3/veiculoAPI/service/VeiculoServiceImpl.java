@@ -1,7 +1,5 @@
 package com.fiap.techChallenge3.apiFase3.veiculoAPI.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +22,6 @@ public class VeiculoServiceImpl implements VeiculoService {
 
     @Override
     public VeiculoDTO buscaVeiculoId(Long id) {
-        Optional<Veiculo> veiculo = repository.findById(id);
         return new VeiculoDTO(repository.findById(id).get());
     }
 

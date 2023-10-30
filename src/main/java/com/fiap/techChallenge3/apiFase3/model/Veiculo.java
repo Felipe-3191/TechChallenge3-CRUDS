@@ -1,6 +1,7 @@
 package com.fiap.techChallenge3.apiFase3.model;
 
 
+import com.fiap.techChallenge3.apiFase3.veiculoAPI.dto.VeiculoDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +19,16 @@ public class Veiculo {
     @JoinColumn(name = "condutor_id")
     private Condutor condutor;
 
-    public  Veiculo() {}
+    public Veiculo() {
+    }
+
+    public  Veiculo(VeiculoDTO veiculoDto) {
+        this.id = veiculoDto.getId();
+        this.marca = veiculoDto.getMarca();
+        this.modelo = veiculoDto.getModelo();
+        this.placa = veiculoDto.getPlaca();
+    }
+
 
     public Long getId() {
         return id;

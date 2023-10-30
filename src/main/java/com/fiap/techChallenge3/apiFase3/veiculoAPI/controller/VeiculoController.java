@@ -3,7 +3,12 @@ package com.fiap.techChallenge3.apiFase3.veiculoAPI.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +27,30 @@ public class VeiculoController {
 
     public ResponseEntity<VeiculoDTO> buscaVeiculo(@RequestParam String placa) {
 
-        return ResponseEntity.status(HttpStatus.OK).body(service.buscaVeiculo(placa));    }
+        return ResponseEntity.status(HttpStatus.OK).body(service.buscaVeiculo(placa));
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<VeiculoDTO> buscaVeiculoId(@PathVariable("id") Long id) {
+
+        return ResponseEntity.status(HttpStatus.OK).body(service.buscaVeiculoId(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<VeiculoDTO> inserirVeiculo(@RequestBody VeiculoDTO veiculo) {
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarVeiculo(veiculo));
+    }
+
+    @PutMapping
+    public ResponseEntity<VeiculoDTO> atualizarVeiculo(@RequestBody VeiculoDTO veiculo) {
+
+        return ResponseEntity.status(HttpStatus.OK).body(service.atualizarVeiculo(veiculo));
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deletarVeiculo(@PathVariable("id") Long id) {
+        service.deletarVeiculo(id);
+        return ResponseEntity.noContent().build();
+    }
 }

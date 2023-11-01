@@ -22,6 +22,9 @@ public class VeiculoDTO {
 
     }
 
+    public VeiculoDTO() {
+    }
+
     public Long getId() {
         return id;
     }

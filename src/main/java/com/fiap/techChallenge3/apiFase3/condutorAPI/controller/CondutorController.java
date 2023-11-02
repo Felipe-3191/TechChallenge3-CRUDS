@@ -3,6 +3,7 @@ package com.fiap.techChallenge3.apiFase3.condutorAPI.controller;
 import com.fiap.techChallenge3.apiFase3.condutorAPI.dto.CondutorBuscarTodosDTO;
 import com.fiap.techChallenge3.apiFase3.condutorAPI.dto.CondutorBuscarTodosMinDTO;
 import com.fiap.techChallenge3.apiFase3.condutorAPI.service.CondutorService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/condutor")
+@Tag(name = "Condutor", description = "API de dados do condutor do veículo")
 public class CondutorController {
 
     private CondutorService service;

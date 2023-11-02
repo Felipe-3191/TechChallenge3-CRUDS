@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fiap.techChallenge3.apiFase3.veiculoAPI.dto.VeiculoDTO;
 import com.fiap.techChallenge3.apiFase3.veiculoAPI.service.VeiculoService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/veiculo")
@@ -25,25 +29,25 @@ public class VeiculoController {
 
     @GetMapping
 
-    public ResponseEntity<VeiculoDTO> buscaVeiculo(@RequestParam String placa) {
+    public ResponseEntity<VeiculoDTO> buscaVeiculo(@RequestParam @Valid @NotBlank String placa) {
 
         return ResponseEntity.status(HttpStatus.OK).body(service.buscaVeiculo(placa));
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<VeiculoDTO> buscaVeiculoId(@PathVariable("id") Long id) {
+    public ResponseEntity<VeiculoDTO> buscaVeiculoId(@PathVariable("id") @Valid @Positive @NotNull Long id) {
 
         return ResponseEntity.status(HttpStatus.OK).body(service.buscaVeiculoId(id));
     }
 
     @PostMapping
-    public ResponseEntity<VeiculoDTO> inserirVeiculo(@RequestBody VeiculoDTO veiculo) {
+    public ResponseEntity<VeiculoDTO> inserirVeiculo(@RequestBody @Valid VeiculoDTO veiculo) {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarVeiculo(veiculo));
     }
 
     @PutMapping
-    public ResponseEntity<VeiculoDTO> atualizarVeiculo(@RequestBody VeiculoDTO veiculo) {
+    public ResponseEntity<VeiculoDTO> atualizarVeiculo(@RequestBody @Valid VeiculoDTO veiculo) {
 
         return ResponseEntity.status(HttpStatus.OK).body(service.atualizarVeiculo(veiculo));
     }

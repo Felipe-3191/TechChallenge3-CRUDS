@@ -4,17 +4,24 @@ import java.util.Optional;
 
 import org.hibernate.tool.schema.spi.SqlScriptException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.stereotype.Service;
 
+import com.fiap.techChallenge3.apiFase3.condutorAPI.repository.CondutorRepository;
+import com.fiap.techChallenge3.apiFase3.model.Condutor;
 import com.fiap.techChallenge3.apiFase3.model.Veiculo;
 import com.fiap.techChallenge3.apiFase3.veiculoAPI.dto.VeiculoDTO;
 import com.fiap.techChallenge3.apiFase3.veiculoAPI.repository.VeiculoRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class VeiculoServiceImpl implements VeiculoService {
 
     @Autowired
     private VeiculoRepository repository;
+    @Autowired
+    private CondutorRepository condutorRepository;
 
     @Override
     public VeiculoDTO buscaVeiculo(String placa) {
@@ -47,11 +54,15 @@ public class VeiculoServiceImpl implements VeiculoService {
     public VeiculoDTO salvarVeiculo(VeiculoDTO veiculoDto) {
         try {
             Veiculo veiculo = new Veiculo(veiculoDto);
+            Condutor condutor = condutorRepository.getReferenceById(veiculoDto.getIdCondutor());
+            veiculo.setCondutor(condutor);
             veiculo = repository.save(veiculo);
             VeiculoDTO response = new VeiculoDTO(veiculo);
             return response;
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao dalvar veiculo");
+        }catch (DataIntegrityViolationException e) {
+            throw new RuntimeException("Erro ao salvar veiculo, condutor não existe");
+        }catch (Exception e) {
+            throw new RuntimeException("Erro ao salvar veiculo");
         }
     }
 
@@ -63,7 +74,7 @@ public class VeiculoServiceImpl implements VeiculoService {
             VeiculoDTO response = new VeiculoDTO(veiculo);
             return response;
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao dalvar veiculo");
+            throw new RuntimeException("Erro ao salvar veiculo");
         }
     }
 

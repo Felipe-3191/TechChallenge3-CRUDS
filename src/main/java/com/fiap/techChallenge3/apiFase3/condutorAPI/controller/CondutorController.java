@@ -17,11 +17,12 @@ import com.fiap.techChallenge3.apiFase3.condutorAPI.dto.CondutorBuscarTodosDTO;
 import com.fiap.techChallenge3.apiFase3.condutorAPI.dto.CondutorBuscarTodosMinDTO;
 import com.fiap.techChallenge3.apiFase3.condutorAPI.dto.CondutorDTO;
 import com.fiap.techChallenge3.apiFase3.condutorAPI.service.CondutorService;
-import com.fiap.techChallenge3.apiFase3.model.Condutor;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/condutor")
+@Tag(name = "Condutor", description = "API de dados do condutor do veículo")
 public class CondutorController {
 
     private final CondutorService service;

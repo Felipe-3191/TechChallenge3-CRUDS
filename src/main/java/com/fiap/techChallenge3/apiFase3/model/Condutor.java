@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.fiap.techChallenge3.apiFase3.condutorAPI.dto.CondutorDTO;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,7 +20,7 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 public class Condutor {
 
-    @OneToMany(mappedBy = "condutor")
+    @OneToMany(mappedBy = "condutor", cascade = CascadeType.ALL)
     private final List<Veiculo> veiculos = new ArrayList<>();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

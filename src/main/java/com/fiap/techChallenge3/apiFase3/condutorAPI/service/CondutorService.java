@@ -46,6 +46,19 @@ public class CondutorService {
             throw new RuntimeException("Erro ao salvar condutor");
         }
     }
+    public CondutorDTO atualizarCondutor(CondutorDTO condutorDTO) {
+        if(condutorDTO.getId() == null) {
+            throw new RuntimeException("Necessário passar o id do condutor");
+        }
+            try {
+                Condutor condutorSalvo = new Condutor(condutorDTO);
+                condutorSalvo = repository.save(condutorSalvo);
+                CondutorDTO response = new CondutorDTO(condutorSalvo);
+                return response;
+            } catch (Exception e) {
+                throw new RuntimeException("Erro ao atualizar condutor");
+            }
+    }
 
     public void deletarCondutor(Long id) {
         try {
@@ -58,4 +71,5 @@ public class CondutorService {
             throw new RuntimeException("Erro ao deletar condutor");
         }
     }
+
 }

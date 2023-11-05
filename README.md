@@ -46,4 +46,23 @@ Em uma primeira análise, os CRUDS de registro de condutores e veículos não re
 Link para o repositório do GitHub que contem a implementação dos CRUDs on-premises: 
 [Repositório CRUDs](https://github.com/Felipe-3191/TechChallenge3-CRUDS)
 
+A API de implementação doss CRUDs on-premises possui uma documentação que pode ser acessada através deste endereço(http://localhost:8080/swagger-ui/index.html) quando a aplicação está online.
+
+Abaixo, temos um PDF desta mesma documentação:
+[Swagger UI.pdf](https://github.com/Felipe-3191/TechChallenge3-CRUDS/files/13260941/Swagger.UI.pdf)
+
+Esta documentação descreve os seguintes endpoints:
+## Condutor
+#### [PUT] /condutor -> atualiza os dados do condutor
+#### [POST] /condutor -> insere os dados do condutor
+#### [GET] /condutor/buscarTodos -> busca os dados de todos os condutores
+#### [GET] /condutor/buscarTodosMin -> busca os dados de todos os condutores
+#### [DELETE] /condutor/{id} -> deleta os dados de um condutor em específico
+
+## Veículo
+#### [GET] /veiculo -> busca um veículo dado uma placa informada
+#### [PUT] /veiculo -> atualiza os dados de um veículo existente
+#### [POST] /veiculo -> insere os dados de um veículo
+#### [GET] /veiculo/{id} -> busca os dados de um veículo dado um id de veículo existente
+#### [DELETE] /veiculo/{id} -> deleta os dados de um veículo em específico
 ---

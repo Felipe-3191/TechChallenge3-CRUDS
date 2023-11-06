@@ -56,7 +56,7 @@ Esta documentação descreve os seguintes endpoints:
 #### [PUT] /condutor -> atualiza os dados do condutor
 #### [POST] /condutor -> insere os dados do condutor
 #### [GET] /condutor/buscarTodos -> busca os dados de todos os condutores
-#### [GET] /condutor/buscarTodosMin -> busca os veículos associados a um condutor
+#### [GET] /condutor/buscarTodosMin -> busca os dados de todos os condutores sem a lista de veículos associados
 #### [DELETE] /condutor/{id} -> deleta os dados de um condutor em específico
 
 ## Veículo

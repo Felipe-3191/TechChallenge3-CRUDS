@@ -41,7 +41,7 @@ Entedemos que como melhor prática, o Terraform criado deveria ser criado em mó
 # Arquitetura da Aplicação - Serviços on Premise
 
 ## Registro de Condutores e Veículos / Registro de Forma de Pagamento
-Em uma primeira análise, os CRUDS de registro de condutores e veículos não representam um ponto crítico no que diz respeito a capacidade de escalar da aplicação, portanto, optamos por rodar essa aplicação on premises, funcionando com Endpoints Rest e persitência em um banco relacional, conforme já foi feito no TechChallenge 2. 
+Em uma primeira análise, os CRUDS de registro de condutores e veículos não representam um ponto crítico no que diz respeito a capacidade de escalar da aplicação, portanto, optamos por rodar essa aplicação on premises, funcionando com Endpoints Rest e persistência em um banco relacional, conforme já foi feito no TechChallenge 2. 
 
 Link para o repositório do GitHub que contem a implementação dos CRUDs on-premises: 
 [Repositório CRUDs](https://github.com/Felipe-3191/TechChallenge3-CRUDS)
@@ -55,7 +55,7 @@ Esta documentação descreve os seguintes endpoints:
 ## Condutor
 #### [PUT] /condutor -> atualiza os dados do condutor
 #### [POST] /condutor -> insere os dados do condutor
-#### [GET] /condutor/buscarTodos -> busca os dados de todos os condutores
+#### [GET] /condutor/buscarTodos -> busca os dados de todos os condutores com os seus veículos associados
 #### [GET] /condutor/buscarTodosMin -> busca os dados de todos os condutores sem a lista de veículos associados
 #### [DELETE] /condutor/{id} -> deleta os dados de um condutor em específico
 
